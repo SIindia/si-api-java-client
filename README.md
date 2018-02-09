@@ -11,23 +11,38 @@ Installation
 
 It is recommended that you use a dependency management system to get started with using SI SMS Java API client in your 
 project.
-You can choose between [Maven](https://maven.apache.org/) and  [Gradle](https://gradle.org/). Depending on your 
-choice find the appropriate configuration below.
 
-### Maven configuration
-For using the API client in your maven project add the following snippet to the <code>\<dependencies></code> section 
-of your <code>pom.xml</code> file:
-```
-<dependency>
-    <groupId>com.si</groupId>
-    <artifactId>si-api-java-client</artifactId>
-    <version>2.1.0</version>
-</dependency>
-```
+Running examples
+----------------
 
-### Gradle configuration
-For adding the API client to your gradle project add the following line to the <code>dependencies</code> section 
-of your <code>build.gradle</code> file:
-```
-compile "com.si:si-api-java-client:2.1.0"
-```
+First, setup your username and password. Then, you can run provided examples in `com.sms.Sms` package
+
+Basic messaging example
+-----------------------
+
+First, initialize the messaging client using your username and password:
+
+    Sms s = new Sms();
+	Map<String,String> map = new HashMap<String,String>();
+
+	s.setApiKey("A40e38XXXXXXXXXXXXXXXXXXXXXXXXXXX");
+	s.setSender("XXXXXX");
+	s.setBaseURL("https://alerts.solutionsinfini.co/api/v4/?");
+
+Send the message:
+
+    String str = s.sendSms(senderNumber, message, map);
+
+Messaging with delivery report push to notification URL example
+-----------------------
+
+Similar to standard messaging example,
+	
+	String deliveryReport = s.smsStatusPush(receiverNumber, message, dlrUrl, responseFormat);
+
+Here `drlUrl` is the encoded URL to receive delivery reports and `responseFormat` is format of the response(XML/PHP/JSON/JSONP).(XML/PHP/JSON/JSONP).
+
+License
+-------
+
+This library is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
