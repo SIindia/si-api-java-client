@@ -31,7 +31,7 @@ First, initialize the messaging client using your username and password:
 
 Send the message:
 
-    String str = s.sendSms(senderNumber, message, map);
+    String str = s.sendSms(receiverNumber, message, map);
 
 Messaging with delivery report push to notification URL example
 -----------------------
