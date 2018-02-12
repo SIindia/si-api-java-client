@@ -31,14 +31,14 @@ First, initialize the messaging client using your username and password:
 
 Send the message:
 
-    String str = s.sendSms(receiversNumber, message, map);
+    String str = s.sendSms(<receiversNumber>, <message>, <map>);
 
 Messaging with delivery report push to notification URL example
 -----------------------
 
 Similar to standard messaging example,
 	
-	String deliveryReport = s.smsStatusPush(receiverNumber, message, dlrUrl, responseFormat);
+	String deliveryReport = s.smsStatusPush(<receiverNumber>, <message>, <dlrUrl>, <responseFormat>);
 
 Here `drlUrl` is the encoded URL to receive delivery reports and `responseFormat` is format of the response(XML/PHP/JSON/JSONP).(XML/PHP/JSON/JSONP).
 
